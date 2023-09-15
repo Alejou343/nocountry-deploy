@@ -34,11 +34,11 @@ export async function PUT(request) {
                 const creator = roomData.createdBy;
                 const participants = roomData.participants.concat(creator);
 
-                for (const participant of participants) {
-                    await sgMail.send(
-                        createNotificationMessage(participant, roomId)
-                    );
-                }
+                // for (const participant of participants) {
+                //     await sgMail.send(
+                //         createNotificationMessage(participant, roomId)
+                //     );
+                // }
 
                 // Marcar la sala como notificada y vencida
                 await firestoreDB.collection("rooms").doc(roomId).update({
